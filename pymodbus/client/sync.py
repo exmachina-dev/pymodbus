@@ -140,7 +140,7 @@ class ModbusTcpClient(BaseModbusClient):
             address = (self.host, self.port)
             self.socket = socket.create_connection((self.host, self.port),
                 timeout=Defaults.Timeout, source_address=self.source_address)
-        except socket.error, msg:
+        except socket.error as msg:
             _logger.error('Connection to (%s, %s) failed: %s' % \
                 (self.host, self.port, msg))
             self.close()
